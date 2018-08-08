@@ -1,0 +1,64 @@
+﻿@model IEnumerable<College.Models.Curso>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<div class="default">
+
+    <h2>Lista de cursos</h2>
+
+    <br />
+
+    <div>
+        @Html.ActionLink("Cadastrar Curso", "Create", new { @class = "btn btn-success" })
+    </div>
+    <br />
+    <br />
+    
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoCurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataICurso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFCurso)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeCurso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescricaoCurso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataICurso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataFCurso)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar Curso", "Edit", new { id = item.CursoId }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Detalhes do curso", "Details", new { id = item.CursoId }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.CursoId }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

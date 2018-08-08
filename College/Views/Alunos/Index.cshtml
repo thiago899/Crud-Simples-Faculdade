@@ -1,0 +1,64 @@
+﻿@model IEnumerable<College.Models.Aluno>
+
+
+
+@{
+    ViewBag.Title = "Index";
+  
+}
+
+
+<br />
+
+<div class="default">
+
+   <h2>Lista geral alunos</h2>
+    <br />
+
+    @Html.ActionLink("Cadastrar Aluno", "Create", new { @class = "btn btn-success" })
+    <br />
+    <br />
+    <br />
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Idade)
+            </th>
+            <th>
+                "Curso"
+            </th>
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Idade)
+                </td>
+                <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.AlunoId }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Detalhes alunos", "Details", new { id = item.AlunoId }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.AlunoId }, new { @class = "btn btn-danger", OnClick = "return confirm('Tem certeza que deseja excluir o aluno?')" })
+                </td>
+
+
+            </tr>
+        }
+
+    </table>
+</div>

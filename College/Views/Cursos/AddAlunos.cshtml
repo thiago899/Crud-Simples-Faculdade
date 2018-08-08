@@ -1,0 +1,140 @@
+﻿@model IEnumerable<College.Models.Aluno>
+
+
+
+@{
+    ViewBag.Title = "Adicionar Alunos";
+}
+
+
+
+<br />
+<br />
+<br />
+<br />
+
+<div class="row">
+    <div class="col-sm-5">
+        <div class="default">
+
+
+
+
+
+            <h2>Alunos</h2>
+
+
+            <table class="table">
+                <tr>
+                    <th>
+                        Nome aluno
+                    </th>
+                    <th>
+                        Check
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    if (item.CursoId == 0)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </th>
+                            <th>
+                                <input type="checkbox" value="@Html.DisplayFor(modelItem => item.AlunoId)" />
+                            </th>
+                        </tr>
+                    }
+                }
+
+            </table>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-sm-2">
+
+
+
+
+        <button class="btn btn-success" onclick="FunctionMandarDados()" value="Adicionar">
+            Salvar
+        </button>
+        <br />
+        <br />
+
+        <script>
+
+            function FunctionMandarDados() {
+
+                var inputs = document.getElementsByTagName("input");
+                var marcados = ' ';
+
+                for (var i = 0; i < inputs.length; i++) {
+                    if (inputs[i].type == "checkbox") {
+                        if (inputs[i].checked) {
+                            alert(inputs[i].value)
+                        }
+                    }
+        </script>
+
+
+
+
+
+    </div>
+
+
+
+
+
+    <div class="col-sm-5">
+        <div class="default">
+
+
+            @*<h2>@Html.DisplayNameFor(model => model.NomeCurso)</h2>*@
+
+
+            <table class="table1">
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        Check
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    if (item.CursoId != 0)
+                    {
+                        <tr>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.Nome)
+                            </th>
+                            <th>
+                                <input type="checkbox" value="@Html.DisplayFor(modelItem => item.AlunoId)" />
+                            </th>
+                        </tr>
+                    }
+                    <?php else: ?>
+
+
+                }
+
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+

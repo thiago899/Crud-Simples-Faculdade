@@ -1,0 +1,56 @@
+﻿@model College.Models.Curso
+
+@{
+    ViewBag.Title = "Detalhes Curso";
+}
+
+<br />
+
+<div class="default">
+    <h2>Detalhes do curso</h2>
+
+    <div>
+
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeCurso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NomeCurso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DescricaoCurso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DescricaoCurso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataICurso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataICurso)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DataFCurso)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DataFCurso)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Adicionar Aluno", "AddAlunos", new { @class = "btn btn-d"}) |
+        @Html.ActionLink("Editar Aluno", "Edit", new { id = Model.CursoId }, new { @class = "btn btn-primary" }) |
+        @Html.ActionLink("Voltar", "Index", new { @class = "btn btn-default" })
+    </p>
+
+</div>
